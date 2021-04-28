@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		F8BDCE622638FF70004D7156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BDCE612638FF70004D7156 /* Assets.xcassets */; };
 		F8BDCE652638FF70004D7156 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BDCE632638FF70004D7156 /* LaunchScreen.storyboard */; };
 		F8BDCE682638FF70004D7156 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BDCE672638FF70004D7156 /* main.m */; };
+		F8BDCE90263968D0004D7156 /* NovelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BDCE8F263968D0004D7156 /* NovelViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		F8BDCE642638FF70004D7156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BDCE662638FF70004D7156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8BDCE672638FF70004D7156 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F8BDCE8E263968D0004D7156 /* NovelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NovelViewController.h; sourceTree = "<group>"; };
+		F8BDCE8F263968D0004D7156 /* NovelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NovelViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				F8BDCE592638FF6D004D7156 /* SceneDelegate.m */,
 				F8BDCE5B2638FF6D004D7156 /* ViewController.h */,
 				F8BDCE5C2638FF6D004D7156 /* ViewController.m */,
+				F8BDCE8E263968D0004D7156 /* NovelViewController.h */,
+				F8BDCE8F263968D0004D7156 /* NovelViewController.m */,
 				F8BDCE5E2638FF6D004D7156 /* Main.storyboard */,
 				F8BDCE612638FF70004D7156 /* Assets.xcassets */,
 				F8BDCE632638FF70004D7156 /* LaunchScreen.storyboard */,
@@ -217,6 +222,7 @@
 				F8BDCE572638FF6D004D7156 /* AppDelegate.m in Sources */,
 				F8BDCE682638FF70004D7156 /* main.m in Sources */,
 				F8BDCE5A2638FF6D004D7156 /* SceneDelegate.m in Sources */,
+				F8BDCE90263968D0004D7156 /* NovelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

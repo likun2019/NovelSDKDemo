@@ -1,52 +1,30 @@
 //
-//  ViewController.m
+//  NovelViewController.m
 //  NovelSDKDemo
 //
 //  Created by likun on 2021/4/28.
 //
 
-#import "ViewController.h"
+#import "NovelViewController.h"
 #import <BXBookStoreSDK/BXNovelManager.h>
 #import <BUAdSDK/BUAdSDK.h>
-#import "NovelViewController.h"
-@interface ViewController ()<BookStoreDelegate,BUNativeExpressRewardedVideoAdDelegate>
+@interface NovelViewController ()<BookStoreDelegate,BUNativeExpressRewardedVideoAdDelegate>
 @property (nonatomic,strong) BUNativeExpressRewardedVideoAd *rewardedVideoAd;
 @property (nonatomic,strong) NSDictionary *params;
 @property (nonatomic,strong) NSString *callBack;
 @end
 
-@implementation ViewController
+@implementation NovelViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"小说demo";
-}
-
-/// 直接弹出控制器
-- (IBAction)showViewController:(id)sender {
+    
     [BXNovelManager defaultManager].delegate = self;
-    // 直接推出一个控制器,承载小说页面
-    [[BXNovelManager defaultManager] presentBookStoreWtihUserId:@"12345677898" placeId:@"3582" rootController:self];
-}
-
-/// 进入二级页面
-- (IBAction)showUIView:(id)sender {
-    NovelViewController *vc = [[NovelViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
     
-}
-/// tab方式
-- (IBAction)showTab:(id)sender {
-    
-    NovelViewController *vc = [[NovelViewController alloc] init];
-    vc.isTabBar = YES;
-    vc.tabBarItem.title = @"小说";
-    UIViewController *vc2 = [[UIViewController alloc] init];
-    vc2.tabBarItem.title = @"其他";
-    vc2.view.backgroundColor = UIColor.whiteColor;
-    UITabBarController *tabVC = [[UITabBarController alloc] init];
-    [tabVC setViewControllers:@[vc,vc2]];
-    [self.navigationController pushViewController:tabVC animated:YES];
+    CGFloat h = self.isTabBar ? self.tabBarController.tabBar.frame.size.height:0;
+    // 获取小说页面,控制器自己实现
+    UIView *view = [[BXNovelManager defaultManager] getBookStoreViewWithFram:CGRectMake(0, [self getStatusBarHeight]+[self getNavigationBarHeight], self.view.frame.size.width, self.view.frame.size.height-[self getStatusBarHeight]-[self getNavigationBarHeight]-h) thirdUserId:@"1234566789" placeId:@"3582"];
+    [self.view addSubview:view];
 }
 
 - (void)showAd:(NSDictionary *)params callBack:(NSString *)callBack{
@@ -64,11 +42,9 @@
 
 - (void)nativeExpressRewardedVideoAdDidLoad:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd{
     NSLog(@"穿山甲-激励视频广告-物料-加载成功");
-    // 如果采用 present 方式加载小说页面,请使用 [BXNovelManager defaultManager].currentViewController 作为根控制器,不然视频出不来
-    [self.rewardedVideoAd showAdFromRootViewController:[BXNovelManager defaultManager].currentViewController ritScene:BURitSceneType_home_get_bonus ritSceneDescribe:nil];
     
     // 如果采用 getBookStoreViewWithFram 方式加载小说页面,请使用当前控制器作为根控制器
-//    [self.rewardedVideoAd showAdFromRootViewController:self ritScene:BURitSceneType_home_get_bonus ritSceneDescribe:nil];
+    [self.rewardedVideoAd showAdFromRootViewController:self ritScene:BURitSceneType_home_get_bonus ritSceneDescribe:nil];
     
     [[BXNovelManager defaultManager] uploadVideoLoad:self.params callBack:self.callBack];
 
@@ -93,4 +69,18 @@
     [[BXNovelManager defaultManager] uploadVideoComplete:self.params callBack:self.callBack];
 
 }
+
+/**
+ *  获取状态栏高度
+ */
+-(CGFloat)getStatusBarHeight{
+    return [[UIApplication sharedApplication] statusBarFrame].size.height;
+}
+/**
+ *  获取导航栏高度
+ */
+-(CGFloat)getNavigationBarHeight{
+    return self.navigationController.navigationBar.frame.size.height;
+}
+
 @end
