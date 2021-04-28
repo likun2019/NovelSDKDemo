@@ -1,0 +1,27 @@
+PODS:
+  - Ads-CN (3.5.1.2):
+    - Ads-CN/BUAdSDK (= 3.5.1.2)
+  - Ads-CN/BUAdSDK (3.5.1.2):
+    - Ads-CN/BUFoundation
+    - Ads-CN/Domestic
+  - Ads-CN/BUFoundation (3.5.1.2)
+  - Ads-CN/Domestic (3.5.1.2)
+  - BXBookStoreSDK (2.3.6.6)
+
+DEPENDENCIES:
+  - Ads-CN (~> 3.5.1.2)
+  - BXBookStoreSDK (~> 2.3.6.6)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - BXBookStoreSDK
+  trunk:
+    - Ads-CN
+
+SPEC CHECKSUMS:
+  Ads-CN: c9f347beb4f9f3894ba1955eee224dd47c3da722
+  BXBookStoreSDK: 3862cc12eba4e64968b33eb6645d828120ac4e22
+
+PODFILE CHECKSUM: 0596bf2355819fcb9b38a7c962208e7c09c1ee25
+
+COCOAPODS: 1.10.1
