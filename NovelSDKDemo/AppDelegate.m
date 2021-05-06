@@ -16,8 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // 小说sdk初始化 appkey和secretKey注意替换成自己的
     [[BXNovelManager defaultManager] setAppKey:@"kljbxsSDKzk_aoptsy" secretKey:@"Q046Lo8g736d0Bn3"];
+    
+    // 穿山甲sdk初始化
     [BUAdSDKManager setLoglevel:BUAdSDKLogLevelDebug];
     [BUAdSDKManager setAppID:@"5133954"];
     return YES;

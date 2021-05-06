@@ -23,6 +23,8 @@
     
     CGFloat h = self.isTabBar ? self.tabBarController.tabBar.frame.size.height:0;
     // 获取小说页面,控制器自己实现
+    // thirdUserId: 用户的id
+    // placeId: 资源位id,通过小满运营获取
     UIView *view = [[BXNovelManager defaultManager] getBookStoreViewWithFram:CGRectMake(0, [self getStatusBarHeight]+[self getNavigationBarHeight], self.view.frame.size.width, self.view.frame.size.height-[self getStatusBarHeight]-[self getNavigationBarHeight]-h) thirdUserId:@"1234566789" placeId:@"3582"];
     [self.view addSubview:view];
 }

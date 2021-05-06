@@ -26,6 +26,8 @@
 - (IBAction)showViewController:(id)sender {
     [BXNovelManager defaultManager].delegate = self;
     // 直接推出一个控制器,承载小说页面
+    // userId: 用户的id
+    // placeId: 资源位id,通过小满运营获取
     [[BXNovelManager defaultManager] presentBookStoreWtihUserId:@"12345677898" placeId:@"3582" rootController:self];
 }
 
